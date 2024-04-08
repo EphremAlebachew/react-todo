@@ -1,23 +1,29 @@
 import React from 'react'
-const List = [
-    { id: 1 ,title:"Complete assignment 1"},
-    { id: 2, title:" react 1" },
-    { id: 3,title:" ass-1" },
-];
+
 const greetings = "Good morning";
   
- function TodoList() {
+ function TodoList(props) {
   return (
     <div>
       <h1>{greetings}, Frank</h1>
       <ul>
-        {List.map(list => (
-          <li key={list.id}>{list.title}</li>
-         
-        ))}
+        
+          {props.todoList.map(todo => (
+            <li key={todo.id}>{todo.title}</li>
+          ))}
+        
         
       </ul>
     </div>
   )
 }
 export default TodoList;
+
+// const List = [
+//     { id: 1 ,title:"Complete assignment 1"},
+//     { id: 2, title:" react 1" },
+//     { id: 3,title:" ass-1" },
+// ];
+
+{/* {List.map(list => (
+          <li key={list.id}>{list.title}</li> */}
