@@ -1,21 +1,23 @@
 import React from 'react'
-import TodoListItem from "./TodoListItem/TodoListItem";
-const greetings = "Good morning";
+import TodoListItem from '../TodoListItem/TodoListItem';
+
+
   
- function TodoList(props) {
+function TodoList(props) {
+  const { todoList } = props;
   return (
     <div>
-      <h1>{greetings}, Frank</h1>
+      
       
       <ul>
-      {todos.map(todo => (
-        <TodoListItem key={todo.id} todo={todo} />
-      ))}
-    </ul>
+        {todoList.map(todo => (
+          <TodoListItem key={todo.id} todo={todo} />
+        ))}
+      </ul>
 
     </div>
-  )
-}
+  );
+};
 export default TodoList;
 
 // const List = [
