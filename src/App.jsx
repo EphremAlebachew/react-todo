@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import TodoList from "./Todolist/TodoList";
+import React, { useState } from 'react';
 
+import AddTodoForm from './AddTodoForm/AddTodoForm';
+import TodoList from './Todolist/TodoList';
 
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
 
   return (
     <div>
+      <AddTodoForm onAddTodo={(title) => setTodoList([...todoList, { id: Date.now(), title }])} />
       <TodoList todoList={todoList} />
     </div>
   );
