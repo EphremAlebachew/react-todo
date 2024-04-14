@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoListItem from '../TodoListItem/TodoListItem';
-const TodoList = (props) => {
-  const { todoList } = props;
+const TodoList = ({ todoList } ) => {
+  // const { todoList } = props;
 
   return (
     <ul>

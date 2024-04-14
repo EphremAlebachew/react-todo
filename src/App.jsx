@@ -11,6 +11,7 @@ const App = () => {
 
   return (
     <div>
+     
       <AddTodoForm onAddTodo={addTodo} />
       <TodoList todoList={todoList} />
     </div>
@@ -18,6 +19,8 @@ const App = () => {
 };
 
 export default App;
+
+{/* <React.Fragment>Hello react</React.Fragment>  */}
 // function App() {
 //   const [todoList, setTodoList] = useState([]);
 
