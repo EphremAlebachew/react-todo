@@ -17,16 +17,18 @@ const AddTodoForm = ({ onAddTodo }) => {
     const newTodoTitle = event.target.value;
     setTodoTitle(newTodoTitle);
   };
+  const [count, setCount] = useState(0)
+  // useEffect(() => {
+  //   console.log("first useffect example is", count);
+  // }, [count]);
 
   return (
     <form onSubmit={handleAddTodo}>
-      <input 
-        type="text" 
-        name="title" 
-        value={todoTitle} 
-        onChange={handleTitleChange} 
+
+     Title <input type="text"   name="title" value={todoTitle}  onChange={handleTitleChange} 
+        
       />
-      <button type="submit">Add Todo</button>
+      <button type="submit">Add</button>
     </form>
   );
 };
