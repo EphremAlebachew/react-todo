@@ -13,19 +13,21 @@ const App = () => {
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
   };
+  
 
-  return (
-    <div>
-     <h2>Todo List</h2>
-      <AddTodoForm onAddTodo={addTodo} />
-      <TodoList todoList={todoList} />
-    </div>
-  );
-};
+    return (
+      <div>
+        
+        <h2>Todo List</h2>
+        <AddTodoForm onAddTodo={addTodo} />
+        <TodoList todoList={todoList} />
+      </div>
+    );
+  };
 
 export default App;
 
-{/* <React.Fragment>Hello react</React.Fragment>  */}
+/* <React.Fragment>Hello react</React.Fragment>  */
 // function App() {
 //   const [todoList, setTodoList] = useState([]);
 
@@ -46,3 +48,9 @@ export default App;
 // }
 
 // export default App;
+
+// const users = () => {
+//   const [expand, setExpand] = useState(false);
+//   const toggleExpand = () => setExpand((prevExpand) => !prevExpand);
+/* <button onClick={toggleExpand}>header <span>{ expand ? "-":"+"}</span>
+        </button> */
