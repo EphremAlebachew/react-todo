@@ -11,17 +11,17 @@
 
 // export default TodoList1;
 import React from 'react';
-
 import TodoListItem1 from '../TodoListItem1/TodoListItem1';
 
-const TodoList1 = ({ todos }) => { // Destructuring the props
+
+const TodoList1 = ({ todos }) => {
   return (
-    <ul>
-      {todos.map(todo => (
-        <TodoListItem1 key={todo.id} todo={todo} /> /* Fixed the variable name from 'item' to 'todo' */
+    <div>
+      {todos.map((todo, index) => (
+        <TodoListItem1 key={index} todo={todo} />
       ))}
-    </ul>
+    </div>
   );
-}
+};
 
 export default TodoList1;
