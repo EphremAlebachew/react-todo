@@ -14,11 +14,11 @@ import React from 'react';
 import TodoListItem1 from '../TodoListItem1/TodoListItem1';
 
 
-const TodoList1 = ({ todos }) => {
+const TodoList1 = ({ todos, onRemoveTodo }) => {
   return (
     <div>
       {todos.map((todo, index) => (
-        <TodoListItem1 key={index} todo={todo} />
+        <TodoListItem1 key={index} todo={todo} onRemoveTodo={() => onRemoveTodo(index)} />
       ))}
     </div>
   );

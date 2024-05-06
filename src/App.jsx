@@ -21,38 +21,32 @@
 // };
 
 // export default App;
-import React, { useState, useEffect } from 'react';
+// Filter out the todo item with the given id
+// Update the state with the new todo list
+/* Pass removeTodo as a prop */
+import React, { useState } from 'react';
+import TodoList1 from './TodoList1/TodoList1';
 import AddTodoForm from './AddTodoForm/AddTodoForm';
 
-import TodoList1 from './TodoList1/TodoList1';
-
-// Custom hook for semi-persistent state
-function useSemiPersistentState(key, initialState) {
-  const [value, setValue] = useState(() => {
-    const savedValue = localStorage.getItem(key);
-    return savedValue ? JSON.parse(savedValue) : initialState;
-  });
-
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
-
-  return [value, setValue];
-}
-
 function App() {
-  // Using the custom hook
-  const [todoList, setTodoList] = useSemiPersistentState('savedTodoList', []);
+  const [todoList, setTodoList] = useState([]);
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
+  };
+
+  const removeTodo = (id) => {
+    
+    const updatedTodoList = todoList.filter((todo, index) => index !== id);
+    
+    setTodoList(updatedTodoList);
   };
 
   return (
     <div>
       <h1>Todo List</h1>
       <AddTodoForm onAddTodo={addTodo} />
-      <TodoList1 todos={todoList} />
+      <TodoList1 todos={todoList} onRemoveTodo={removeTodo} /> 
     </div>
   );
 }

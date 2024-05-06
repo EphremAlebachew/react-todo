@@ -16,10 +16,13 @@
 // export default TodoListItem1;
 import React from 'react';
 
-const TodoListItem1 = ({ todo }) => { // Destructuring the props
+const TodoListItem1 = ({ todo, onRemoveTodo }) => {
   return (
-    <li>{todo.title}</li>
+    <div>
+      <span>{todo}</span>
+      <button type="button" onClick={onRemoveTodo}>Remove</button>
+    </div>
   );
-}
+};
 
 export default TodoListItem1;
