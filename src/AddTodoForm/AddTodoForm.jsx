@@ -1,28 +1,36 @@
-import React, { useState } from 'react';
-import InputWithLabel from '../InputWithLabel/InputWithLabel';
+import React, { useState } from "react";
 
-const AddTodoForm = () => {
-  const [todoTitle, setTodoTitle] = useState('');
+function AddTodoForm({ onAddTodo }) { // Destructuring the props
+  const [todoTitle, setTodoTitle] = useState("");
 
   const handleTitleChange = (event) => {
-    setTodoTitle(event.target.value);
+    const newTodoTitle = event.target.value;
+    setTodoTitle(newTodoTitle);
   };
 
-  const handleSubmit = (event) => {
+  const handleAddTodo = (event) => {
     event.preventDefault();
-    
+    const newTodo = {
+      title: todoTitle,
+      id: Date.now() // Generating a unique identifier
+    };
+    onAddTodo(newTodo); // Update the onAddTodo callback prop to pass an Object
+    setTodoTitle(""); // Reset todoTitle state to an empty string
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputWithLabel
-        label="Title"
-        value={todoTitle}
-        onChange={handleTitleChange}
-      />
-      <button type="submit">Add Todo</button>
-    </form>
+    <div>
+      <form onSubmit={handleAddTodo}>
+        <input 
+          type="text" 
+          name="title" 
+          value={todoTitle} 
+          onChange={handleTitleChange} 
+        />
+        <button type="submit">Add Todo</button>
+      </form>
+    </div>
   );
-};
+}
 
 export default AddTodoForm;
