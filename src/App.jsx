@@ -18,15 +18,14 @@ function App() {
 
     fetchData().then(result => {
       setTodoList(result.data.todoList);
-      setIsLoading(false); // Turn off loading indicator after data fetch
+      setIsLoading(false); 
     });
-  }, []); // Empty dependency array ensures the effect runs only once on component mount
-
+  }, []); 
   useEffect(() => {
     if (!isLoading) {
       localStorage.setItem('todoList', JSON.stringify(todoList));
     }
-  }, [todoList, isLoading]); // Dependency on todoList and isLoading
+  }, [todoList, isLoading]); 
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
